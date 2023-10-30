@@ -8,8 +8,8 @@ export const loader = async () => {
 
 const Trains = () => {
   const { data } = useLoaderData();
-  const res = data.forEach((train) => {
-    return <SingleTrain t={train} />;
+  const res = data.map((train) => {
+    return <SingleTrain {...train} />;
   });
 
   return { res };
