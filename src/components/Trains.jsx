@@ -2,14 +2,14 @@ import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 export const loader = async () => {
-  let data = await axios.get("http://localhost:5000/search");
-  return data;
+  let resp = await axios.get("http://localhost:5000/search");
+  return resp;
 };
 
 const Trains = () => {
-  const trains_info = useLoaderData();
-  const res = trains_info.forEach((train) => {
-    return <SingleTrain data={train} />;
+  const { data } = useLoaderData();
+  const res = data.forEach((train) => {
+    return <SingleTrain t={train} />;
   });
 
   return { res };
