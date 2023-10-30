@@ -9,9 +9,9 @@ export const loader = async () => {
 const Trains = () => {
   const { data } = useLoaderData();
 
-  const res = data.map((train) => {
+  const res = data.map((train, index) => {
     return (
-      <div>
+      <div key={index}>
         <h2>Train: {train.Train}</h2>
         <h1>
           Train Name: {train.TrainName} Train Number: {train.trainNo}
@@ -41,7 +41,7 @@ const Trains = () => {
     );
   });
 
-  return { res };
+  return res;
 };
 
 export default Trains;
