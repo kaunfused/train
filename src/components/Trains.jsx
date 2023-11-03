@@ -9,23 +9,23 @@ export const loader = async () => {
 };
 
 const seats = [
-  { name: "3AC", count: 0 },
-  { name: "3E", count: 0 },
-  { name: "2AC", count: 0 },
-  { name: "1AC", count: 0 },
-  { name: "AC Chair", count: 0 },
-  { name: "Executive Chair", count: 0 },
+  { name: "3AC" },
+  { name: "3E" },
+  { name: "2AC" },
+  { name: "1AC" },
+  { name: "AC Chair" },
+  { name: "Executive Chair" },
 ];
 
 const Trains = () => {
   const { data } = useLoaderData();
   const [seatsInfo, setSeatsInfo] = useState([]);
 
-  //function to add the number of which type of seats the customer needs
-  function Add(seat_type) {
+  //function to add which type of seat the customer needs in which train
+  function Add(seat_type, t) {
     let t = seats.map((s) => {
       if (s.name === seat_type) {
-        s.count = s.count + 1;
+        return { train: t, seat: s };
       }
     });
     setSeatsInfo([...seatsInfo, t]);
@@ -61,7 +61,7 @@ const Trains = () => {
                 <h2>3AC: {train["3AC_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("3AC");
+                    Add("3AC", train.TrainName);
                   }}
                 >
                   Add
@@ -75,7 +75,7 @@ const Trains = () => {
                 <h2>3E: {train["3E_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("3E");
+                    Add("3E", train.TrainName);
                   }}
                 >
                   Add
@@ -89,7 +89,7 @@ const Trains = () => {
                 <h2>2AC: {train["2AC_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("2AC");
+                    Add("2AC", train.TrainName);
                   }}
                 >
                   Add
@@ -103,7 +103,7 @@ const Trains = () => {
                 <h2>1AC: {train["1AC_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("1AC");
+                    Add("1AC", train.TrainName);
                   }}
                 >
                   Add
@@ -117,7 +117,7 @@ const Trains = () => {
                 <h2>AC chair car: {train["AC_CharCar_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("AC Chair");
+                    Add("AC Chair", train.TrainName);
                   }}
                 >
                   Add
@@ -131,7 +131,7 @@ const Trains = () => {
                 <h2>Executive Chair car: {train["ExechairCar_Num"]}</h2>
                 <button
                   onClick={() => {
-                    Add("Executive Chair");
+                    Add("Executive Chair", train.TrainName);
                   }}
                 >
                   Add
