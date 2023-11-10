@@ -2,11 +2,12 @@ import { styled } from "styled-components";
 import { useState } from "react";
 import pic from "../assests/logo3.jpg";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
+  const nav = useNavigate();
   const [value, setValue] = useState({
     username: "",
     email: "",
@@ -65,6 +66,7 @@ function Register() {
       }
       if (data.status === true) {
         localStorage.setItem("User", JSON.stringify(value));
+        nav("/search");
       }
     }
   };

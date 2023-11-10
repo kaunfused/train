@@ -1,13 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Login, Register, Home, Trains, Landing } from "./pages/index";
-import { loader as TrainInfo } from "./pages/Trains";
+import { Login, Register, Home, Trains, Booking } from "./components/index";
+import { loader as TrainInfo } from "./components/Trains";
+import { loader as book } from "./components/Booking";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing />,
-    errorElement: <h1>There was an error...</h1>,
     children: [
       {
         element: <Register />,
@@ -25,6 +24,11 @@ const router = createBrowserRouter([
         path: "results",
         element: <Trains />,
         loader: TrainInfo,
+      },
+      {
+        path: "booking_details",
+        element: <Booking />,
+        loader: book,
       },
     ],
   },

@@ -49,7 +49,7 @@ function Login() {
         nav("/search");
       }
       if (data.status === false) {
-        console.log("nope");
+        toast.error("Incorrect Credentials",error);
       }
     }
   };
