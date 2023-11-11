@@ -1,12 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Login, Register, Home, Trains, Booking } from "./components/index";
+import {
+  Login,
+  Register,
+  Home,
+  Trains,
+  Booking,
+  Base,
+} from "./components/index";
 import { loader as TrainInfo } from "./components/Trains";
 import { loader as book } from "./components/Booking";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Base />,
     children: [
       {
         element: <Register />,
