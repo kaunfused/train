@@ -21,16 +21,12 @@ const Trains = () => {
   }
 
   useEffect(() => {
-    
-
+  
     if(seatsInfo){
-      const x = Submit(seatsInfo)
-      if(x===1){
-        nav("/search");
-      }
+      Submit(seatsInfo)
+      nav("/booking_details");
     }
   }, [seatsInfo]);
-
   // function to submit the customer requirements of seats
   async function Submit(lala) {
     console.log(lala);

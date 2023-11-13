@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import {
@@ -9,7 +10,6 @@ import {
   Base,
 } from "./components/index";
 import { loader as TrainInfo } from "./components/Trains";
-import { loader as book } from "./components/Booking";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +36,10 @@ const router = createBrowserRouter([
       {
         path: "booking_details",
         element: <Booking />,
-        loader: book,
+        loader: async () => {
+          let resp = await axios.get("http://localhost:5000/get_booking")
+          return resp;
+        }
       },
     ],
   },

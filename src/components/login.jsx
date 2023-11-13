@@ -49,7 +49,7 @@ function Login() {
         nav("/search");
       }
       if (data.status === false) {
-        toast.error("Incorrect Credentials",error);
+        toast.error("Incorrect Credentials", error);
       }
     }
   };
@@ -81,7 +81,7 @@ function Login() {
               Log In
             </button>
             <span>
-              Dont have an <Link to="/register">Account?</Link>
+              Dont have an <Link to="/">Account?</Link>
             </span>
             <span>Forgot UserName</span>
           </form>
@@ -94,7 +94,6 @@ function Login() {
 
 const Container = styled.div`
   height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
