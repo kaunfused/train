@@ -28,7 +28,15 @@ const Navbar = () => {
           </li>
         </ul>
       ) : (
-        <li className="logout">Logout</li>
+        <li
+          className="logout"
+          onClick={() => {
+            localStorage.removeItem("User");
+            nav("/login");
+          }}
+        >
+          Logout
+        </li>
       )}
     </nav>
   );
