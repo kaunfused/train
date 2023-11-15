@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "./tickets.css";
+import "./css/tickets.css";
 
 function Ticket() {
   return (
