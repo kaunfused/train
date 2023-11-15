@@ -28,15 +28,25 @@ const Navbar = () => {
           </li>
         </ul>
       ) : (
-        <li
-          className="logout"
-          onClick={() => {
-            localStorage.removeItem("User");
-            nav("/login");
-          }}
-        >
-          Logout
-        </li>
+        <ul>
+          <li
+            className="logout"
+            onClick={() => {
+              localStorage.removeItem("User");
+              nav("/login");
+            }}
+          >
+            Logout
+          </li>
+          <li
+            className="logout"
+            onClick={() => {
+              nav("/transactions");
+            }}
+          >
+            Transactions
+          </li>
+        </ul>
       )}
     </nav>
   );
