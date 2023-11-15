@@ -11,6 +11,7 @@ import {
   Transaction,
   Ticket,
 } from "./components/index";
+
 import { loader as TrainInfo } from "./components/Trains";
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "transactions",
         element: <Transaction />,
+        loader: async () => {
+          let data = await axios.get("http://localhost:5000/transaction");
+          return data;
+        },
       },
       {
         path: "ticket",

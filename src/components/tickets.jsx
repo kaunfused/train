@@ -1,7 +1,16 @@
+import { useLoaderData } from "react-router-dom";
 import styled from "styled-components";
 import "./css/tickets.css";
 
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, "0");
+let mm = String(today.getMonth() + 1).padStart(2, "0");
+let yyyy = today.getFullYear();
+today = mm + "/" + dd + "/" + yyyy;
+
 function Ticket() {
+  let data = useLoaderData();
+
   return (
     <Wrapper>
       <h3>Your seat has been booked!!</h3>
@@ -9,22 +18,26 @@ function Ticket() {
 
       <div className="destination">
         <h2>From </h2>
-        <p>Howrah</p>
+        <p>{data.source}</p>
         <h2>To </h2>
-        <p>Puri</p>
+        <p>{data.destination}</p>
       </div>
       <table>
         <tr>
-          <th>Name</th>
           <th>Seat No.</th>
+          <th>Date of Travel</th>
+          <th>Departure</th>
+          <th>Arrival</th>
           <th>Train Name</th>
           <th>Class</th>
         </tr>
         <tr>
-          <td>John Doe</td>
-          <td>12A</td>
-          <td>Express 123</td>
-          <td>First Class</td>
+          <td>{data.seatno}</td>
+          <td>{today}</td>
+          <td>{data.departure}</td>
+          <td>{data.arrival}</td>
+          <td>{data.trainName}</td>
+          <td>{data.coach}</td>
         </tr>
       </table>
     </Wrapper>
