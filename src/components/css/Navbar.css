@@ -17,7 +17,7 @@ nav {
   font-size: 3rem;
   letter-spacing: 0.9rem;
   color: white;
-  transition: 0.4s linear;
+  transition: 0.45s ease-out;
 }
 
 .logo h1:hover {

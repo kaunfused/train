@@ -10,7 +10,7 @@ const Navbar = () => {
         <h1>TCKT</h1>
       </div>
 
-      {!localStorage.getItem("User") ? (
+      {localStorage.getItem("User") ? (
         <ul>
           <li
             onClick={() => {

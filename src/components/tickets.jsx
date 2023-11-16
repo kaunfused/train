@@ -5,7 +5,7 @@ function Ticket() {
   return (
     <Wrapper>
       <h3>Your seat has been booked!!</h3>
-      <h1>Passenger details:</h1>
+      <h1>Ticket details:</h1>
 
       <div className="destination">
         <h2>From </h2>
