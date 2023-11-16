@@ -60,7 +60,7 @@ function Login() {
         <h2>TCKT</h2>
         <div className="container2">
           <form>
-            <h3>Welcome Back!</h3>
+            <h3 style={{ letterSpacing: "normal" }}>Welcome Back!</h3>
             <input
               type="text"
               placeholder="Username"
