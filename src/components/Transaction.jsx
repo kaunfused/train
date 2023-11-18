@@ -1,7 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 
 function Trans() {
   let data = useLoaderData();
+  let nav = useNavigation();
+
+  if (nav.state === "loading") {
+    return <h1>Loading...</h1>;
+  }
 
   let t = data.map((item, index) => {
     return (
